@@ -1,23 +1,13 @@
-'use strict';
+(function (angular) {
+  'use strict';
+  angular.module('appServices', []);
+  angular.module('appControllers', []);
+  angular.module('appDirectives', []);
 
-/**
- * @ngdoc overview
- * @name whishlistApp
- * @description
- * # whishlistApp
- *
- * Main module of the application.
- */
-angular
-  .module('whishlistApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+  var app = angular.module('wishListApp', 
+    ['appServices', 'appControllers', 'appDirectives']);
+
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -27,7 +17,12 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/addwish', {
+        templateUrl: 'views/addwish.html',
+        controller: 'AddWishCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
   });
+}(angular));
