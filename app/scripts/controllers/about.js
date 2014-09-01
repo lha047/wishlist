@@ -1,17 +1,10 @@
-'use strict';
+(function(appControllers){
+	'use strict';
 
-/**
- * @ngdoc function
- * @name whishlistApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the whishlistApp
- */
-angular.module('whishlistApp')
-  .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  appControllers.controller('AboutCtrl', ['$scope', '$location', 
+  	function ($scope, $location) {
+  	$scope.addWish = function() {
+  		$location.path(addWish);
+  	};  
   });
+})(angular.module('appControllers'));
